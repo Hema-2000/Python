@@ -1,0 +1,21 @@
+# private variable - we can access within the class only and we cant modify out of the class.
+#protected variable- we can acces within the class and in child class as well but we cant out of the class
+#public variable- we can accessa nywhere in the program i.e., within or out of the class
+
+class student:
+    __name="hema"
+    __roll=24
+    
+    def __init__(self):
+        print(self.__name)
+        self.__roll=120
+        print(self.__roll)
+        
+    def new(self):
+        print(self.__name)
+        self.__roll=140
+        print(self.__roll)
+        
+s=student()
+s.__roll=123#we ant modify because it is private variable
+c.new()
