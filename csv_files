@@ -1,0 +1,51 @@
+csv....comma seperated values
+it is a simple file formate used to store tabular data like database
+each line of file represents a row of the table and each values are seperated by commas (field seperator)
+to work with csv we have csv module in that we have csv.reader class,csv.dictreader class,csv.writer,csv.dictwriter classes are there
+
+  ex: to write in csv file
+import csv
+
+# Open the CSV file in write mode and create a CSV writer
+with open("emp.csv", "w", newline='') as f:
+    w = csv.writer(f)
+
+    # Write the header row
+    w.writerow(["Eno", "Ename", "Esal", "Eaddr"])
+
+    # Get the number of employees from the user
+    n = int(input("Enter the number of employees:"))
+
+    # Loop through the range of employees
+    for i in range(n):
+        # Get information for each employee from the user
+        eno = input("Enter emp no:")
+        ename = input("Enter emp name:")
+        esal = input("Enter emp sal:")
+        eaddr = input("Enter emp address:")
+
+        # Write the information to the CSV file
+        w.writerow([eno, ename, esal, eaddr])
+
+print("CSV file has been successfully created with employee information.")
+
+
+
+
+ex: to read in csv file
+
+  import csv
+
+# Open the CSV file in read mode
+with open("emp.csv", "r") as f:
+    r = csv.reader(f)
+    data = list(r)
+
+    # Loop through the rows in the CSV file
+    for line in data:
+        # Loop through the words in each row
+        for word in line:
+            print(word, "\t", end="")
+        print()  # Move to the next line after printing each row
+
+          
