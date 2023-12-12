@@ -1,0 +1,52 @@
+abstract method
+-->a method which contains only declaration but not implementation 
+-->we need to use @abstractmethod decorator 
+-->we need to override the abstract method otherwise we nned to use pass keyword
+example:
+@abstractmethod
+def m1(self):
+  pass
+
+abstract class
+-->if a class contains one or more abstract methods is called abstract class
+-->abstract class also contains non-abstract methods as well
+-->to make class as abstract class we need to derive or create a abstract method from abc module
+-->in abc module only we get ABC(abstract base class) and @abstractmethod decorator
+-->we cannot create object to abstract classes
+
+example:
+
+from abc import ABC,abstractmethod
+class vehicle(ABC):
+    @abstractmethod
+    def wheels(self):
+        pass
+    def engine(self):
+        print("BS6 engine")
+    @abstractmethod
+    def color(self):
+        pass
+    
+class car(vehicle):
+    def wheels(self):
+        print("4 wheels")
+    def color(self):
+        print("black")
+        
+class bike(vehicle):
+    def wheels(self):
+        print("2 wheels")
+    def color(self):
+        print("red")
+        
+c=car()
+c.engine()
+c.wheels()
+c.color()
+
+b=bike()
+b.engine()
+b.wheels()
+b.color()
+        
+    
