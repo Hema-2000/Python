@@ -1,0 +1,84 @@
+-->as a part of programming, we need to store the data permanently for future use
+--> we have 2 types of files 
+1.text file-a file which includes text information or data
+2. binary file-a file which contains binary information like audio video
+-->file modes
+1.r --> open an existing file to read ,file pointer is positioned at beginning, if file is not there then we got filenotfounderror
+2.w --> open an existing file to write,if the file has some data it is going to be overwritten and if file is not there then it creates the file as well
+3.a --> open an existing file to apend operations , it will not overwrite and if file is not there then it creates the file 
+4.r+ --> to read and write data in to file , previous data will not be deleted in file and pointer is at starting position of file
+5.w+ -->  to read and write data in to file ,data in file is overwritten
+5.a+ --> to append and read the data , it wont override the data
+6.x --> create a file and write data in it at a time , if file already exists it gives fileexistserror
+
+
+-->open a file.....if we want to do any type of operations we need to open a file
+ex: f=open(filename,mode).....mode is for which purpose we need to open a file
+-->close a file ......after completion of operation we need to close the file
+ex: f.close()
+
+
+properties of file we can get once we create object to that file
+f=open("sample.txt","w")    ..... here f is object
+print("file name is:",f.name) 
+print("file mode is:",f.mode)
+print("is file readable?",f.readable())   ...... it will give boolean value
+print("is file writable?",f.writable())
+print("is file closed?",f.closed)   ---- it will give false
+f.close()
+print("is file closed?",f.closed)  ... it will give true
+
+
+
+-->write operation   .... it will overwrite the date to avoid this append method is used
+1.f.write("str")
+2.l=[str1\n,str2\n,....]
+  f.writelines(l)
+
+-->instead of w just write a mode to append then data will not override in the file....\n must and should while write operation performed in files becoz it write all things in a single line
+
+
+--->read operations
+1.f.read()  .... it rads all the data in file
+2.f.read(5) .... 5 characters in a file
+3.f.readline() ....to read only one line in a  file
+4.readlines() .. it reads all lines in a file
+
+
+
+-->with statement
+this statement is used for writing operations as well.... no need to specify close() file it automatically closes the file one operation is completed when with is used
+ex:
+with open("abcd.txt","w") as f:
+    f.write("Hello\n")
+    f.write("Hyderabad\n")
+    print("is file closed?",f.closed)
+print("is file closed?",f.closed)
+
+
+-->tell() method ....it return the current position of file pointer(cursor) from beginning of file
+-->seek() method .... it used to move cursor to specified location
+
+-->check file is there or not
+import os module
+os.path.isfile(filename)
+after check give below command
+os._exit(0)
+
+
+---> zip and unzip()
+to improve performance and memory utilization as well and also reduces transport speed of file
+zipfile module is there in that ZipFile class is there
+
+-->creating zip file 
+we need to create zipfile object by using zipfile class ,zipfile name,mode,constant to represent creation of zip file as below example
+once we created zipfile add files to it by using write() function and finally close it
+
+ex: f = ZipFile("files.zip","w","ZIP_DEFLATED")
+
+-->unzip operation
+f = ZipFile ("files.zip","r",ZIP_STORED)
+zip_stored represent thatunzip operation
+names = f.namelist()
+above line will give list of file names in zip file
+
