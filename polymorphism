@@ -1,0 +1,84 @@
+-->method overloading -- static -- at compile time -- refinement technique -- operator, method and constructor overloading
+-->method overriding -- dynamic --at run time --replacement technique -- method and constructor overriding
+-->operator + add in integers and concatination in strings   -->magic method(def __add__(self,other))
+-->similarly *mul in integers and repetition in strings     -->magic method (def __mul__(self,other))
+
+1.operator overloading
+example:
+class Book:
+  def __init__(self,pages):
+    self.pages=pages
+    
+b1=Book(10)
+b2=Book(20)
+print(b1+b2) #here we got an error unsupported operand  so we have magic mathods to overload any operator we have to override the method
+
+example:
+class Book:
+    def __init__(self,pages):
+        self.pages=pages
+    def __add__(self, other):
+        return self.pages+other.pages
+    def __mul__(self, other):
+        return self.pages*other.pages
+
+b1=Book(10)
+b2=Book(20)
+print(b1+b2)
+print(b1*b2)
+
+
+2.methoid overloading
+methods are having same name with different parameters but in python it is not possible it takes only considered last declared class only but not remaining
+
+example:
+class Test:
+    def m1(self):
+        print("no arg method")
+    def m1(self,a):
+        print("one arg method")
+    def m1(self,a,b):
+        print("two arg method")
+t=Test()
+t.m1()
+t.m1(10)
+t.m1(10,20)
+
+
+3. constructor overloading
+it is also not possible like method overloading if we declare more constructors with same name and different no. of arguments it consider only last constructor only. 
+
+
+4.overriding
+all members in parent class are available to child class if the child class want to change the parent class members for some reasons .....we can call parent class in child class through super() method
+
+example:method overriding
+class Parent:
+    def property(self):
+        print("Cash+Gold+Lands")
+    def car(self):
+        print("Alto car")
+        
+class Child(Parent):
+    def car(self):
+        super().car()
+        print("Benz car")
+        
+c=Child()
+c.property()
+c.car()
+
+example:constructor overriding
+
+class Parent:
+    def __init__(self):
+        print("Parent class constructor")
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        print("Child class constructor")
+c=Child()
+
+
+
+
