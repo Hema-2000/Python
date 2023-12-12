@@ -1,0 +1,21 @@
+class student:
+    name="hema"
+    def __init__(self):
+       self.m1=10
+       self.m2=20
+        
+    def new(self):#instance method
+        print(self.m1+self.m2)
+        
+    @classmethod
+    def c_m(cls):
+        print(cls.name)
+        
+    @staticmethod
+    def s_m(a,b):
+        print(a+b)
+        
+s=student()
+s.new()
+s.c_m()
+s.s_m(2,3)
