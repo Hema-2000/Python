@@ -1,0 +1,17 @@
+packages -- group of modules
+how to access modules from packages
+import sys
+sys.path.append("path of package")
+
+ex:
+in main proogram
+import sys
+sys.path.append("F:\pythonProject@8am\package1")
+from module1 import Employee  #importing emp class in mobule 1 from package1
+e=Employee(101,"sai","hyderabad") #creating object to class
+e.displayemp()
+sys.path.append("F:\pythonProject@8am\package2")  
+from module2 import Student  #importing stu class in mobule 2 from package2
+s=Student(1234,"raj","sr nagar")
+s.displaystu()
+
