@@ -1,0 +1,81 @@
+decorators
+  --> decorators is a design pattern of python which allows user to add functionality to existing function without modyifying its structure.
+  --> decorators are called before the defnition of function you want to modify
+  --> decorator is a function which can take function as a argument and extends its functionality return the modified fun with extended functionality
+  --> the main objective of decorator is to extend the functionality of existing function without modifying the original function
+
+  ex:
+  def condition(wish):
+    def check(name):
+        if name == "raj":
+            print("this is decorator function\t hello raj good morning")
+        else:
+            wish(name)
+    return check
+    
+@condition
+def wish(name):
+    print("hello",name,"good morning")
+    
+wish("hema")
+wish("latha")
+wish("raj")
+
+
+
+
+generator
+
+ --> generator is a special function which does not return a single value , it returns a iterator object with sequence of values
+ --> in this yield keyword is used to generate a value instead of return 
+ --> generator is a function which is used to generate a sequence of values
+ --> generators are suitable for reading data from large files
+
+   ex:
+   def f1():
+    yield 123
+    yield "sai"
+    yield "hyd"
+    yield 30000
+
+# Create a generator object
+g = f1()
+
+# Print the type of the generator
+print(type(g))
+
+# Retrieve values from the generator using next
+print(next(g))  # Outputs: 123
+print(next(g))  # Outputs: sai
+print(next(g))  # Outputs: hyd
+print(next(g))  # Outputs: 30000
+
+
+
+
+assertion keyword:
+assert keyword is used to debug the code
+-->assert keyword lets u check if the condition is true or not if not means it throws assertion error , we can also write msg to return false statement  
+-->debugging is the process of identify and fixing the bud
+-->print statement is good for  debugging
+-->but there is a problem with print because after fixing the bug we need to delete the print statements otherwise its not good in cosole output
+-->to overcome this we r using assert keyword
+-->so no need to delete print statements after bug fixed
+-->assertion keyword is used for development and testing but not not for production environment
+-->assert conditional_exp msg
+  if the condition true then prog will continue otherwise the prog is terminated by rising assertion error
+  by through assertion error , programmer will solve the bug
+
+
+
+  ex:
+  def square(x):
+    return x*x
+assert square(3)==9,"The square of 3 should be9"
+assert square(4)==16,"The square of 4 shouldbe 16"
+assert square(5)==25,"The square of 5 shouldbe 25"
+
+print(square(3))
+print(square(4))
+print(square(5))
+      
